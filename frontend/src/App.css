@@ -1,0 +1,64 @@
+/* App.css */
+
+.App {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+section {
+  margin: 20px 0;
+}
+
+section h2 {
+  color: #4CAF50;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 10px 0;
+}
+
+ul li strong {
+  color: #333;
+}
+
+.basic-details, .report-summary, .credit-accounts {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.credit-accounts ul {
+  padding-left: 20px;
+}
+
+.credit-accounts li {
+  margin-bottom: 15px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  section {
+    margin: 10px 0;
+  }
+
+  ul li {
+    margin: 5px 0;
+  }
+}
