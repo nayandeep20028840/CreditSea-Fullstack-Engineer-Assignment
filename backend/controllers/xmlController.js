@@ -81,6 +81,15 @@ const uploadReport = async (req, res) => {
         const newReport = new XmlData(dataToStore);
         await newReport.save();
 
+        // Delete the uploaded file
+        fs.unlink(req.file.path, (err) => {
+            if (err) {
+                console.error("Error deleting the file:", err);
+            } else {
+                console.log("File deleted successfully");
+            }
+        });
+
         res.status(200).json({
             message: 'Report processed and saved successfully',
             data: dataToStore,

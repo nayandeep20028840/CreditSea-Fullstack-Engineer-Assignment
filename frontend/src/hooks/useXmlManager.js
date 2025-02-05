@@ -51,13 +51,16 @@ const useXmlManager = () => {
     const handleFetchReport = async () => {
         try {
             const response = await axios.get("http://localhost:3000/api/files/data");
+            // console.log("Report fetched successfully:", response.data);
             setReport(response.data);
+            alert("Data Extracted successfully!");
+            // console.log("Report:", report);
         } catch (error) {
             console.error("Error fetching report:", error);
             alert("Error fetching report.");
         }
     };
-
+    // console.log("Report:", report);
     return {
         selectedFile,
         report,

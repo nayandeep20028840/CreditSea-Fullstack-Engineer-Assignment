@@ -13,7 +13,7 @@ A fullstack MERN (MongoDB, Express, React, Node.js) application that processes X
 
 ## Tech Stack
 - **Backend**: Node.js, Express.js, Multer (for file upload), xml2js (for XML parsing), MongoDB (Mongoose ORM)
-- **Frontend**: React.js, React Router, Axios (for API requests)
+- **Frontend**: React.js, React Router, Axios (for API requests), Tailwind CSS
 - **Database**: MongoDB
 
 ## Installation & Setup
@@ -25,17 +25,17 @@ A fullstack MERN (MongoDB, Express, React, Node.js) application that processes X
 ### Clone the Repository
 
 ```sh
-git clone <repository-url>
-cd creditsea-fullstack-assignment
+git clone https://github.com/nayandeep20028840/CreditSea-Fullstack-Engineer-Assignment
+cd CreditSea-Fullstack-Engineer-Assignment
 ```
 
 #### Backend Setup
 
 ```sh
 cd backend
+
 npm install
 
-PORT=3000
 MONGO_URI=<your_mongodb_connection_string>
 
 npm run dev
@@ -45,19 +45,54 @@ npm run dev
 
 ```sh
 cd frontend
+
 npm install
-npm start
+
+npm run dev
 ```
 
 ## API Endpoints
 
 ### Upload XML File
 
-### Retrieve All Reports
+- **Method**: `POST`
+- **Endpoint**: `/api/files/upload`
+- **Description**: Uploads an XML file to the server. Uses the `fileUpload.single('file')` middleware to handle file uploads before passing the request to the `uploadReport` function.
 
+### Upload XML File
+
+- **Method**: `GET`
+- **Endpoint**: `/api/files/data`
+- **Description**: Retrieves the stored report data from MongoDB. This request is handled by the `getReport` function.
 
 
 ## Schema Design
+
+### Fields
+
+| Field                           | Type                | Description                                |
+|---------------------------------|---------------------|--------------------------------------------|
+| _id                             | ObjectId            | Unique identifier for the document         |
+| **basicDetails**                | Object              | Subdocument to hold basic details          |
+|     - name                      | String              | Full name of the person                    |
+|     - mobilePhone               | String              | Mobile phone number                        |
+|     - pan                       | String              | Personal Account Number (PAN)              |
+|     - creditScore               | Number              | Credit score                               |
+| **reportSummary**               | Object              | Subdocument for report summary             |
+|     - totalAccounts             | Number              | Total number of accounts                   |
+|     - activeAccounts            | Number              | Number of active accounts                  |
+|     - closedAccounts            | Number              | Number of closed accounts                  |
+|     - currentBalanceAmount      | Number              | Current balance amount                     |
+|     - securedAccountsAmount     | Number              | Secured accounts amount                    |
+|     - unsecuredAccountsAmount   | Number              | Unsecured accounts amount                  |
+|     - last7DaysCreditEnquiries  | Number              | Credit enquiries in the last 7 days        |
+| **creditAccountsInformation**   | Array               | Array of credit account details            |
+|     - creditCard                | String              | Name of credit card                        |
+|     - bankOfCreditCard          | String              | Bank associated with the credit card       |
+|     - address                   | String              | Address linked to the account              |
+|     - accountNumber             | String              | Account number                             |
+|     - amountOverdue             | Number              | Amount overdue                             |
+|     - currentBalance            | Number              | Current balance     
 
 
 ## Testing
@@ -82,6 +117,8 @@ creditsea-fullstack-assignment/
 ├── frontend/
 │   ├── public/
 │   ├── src/
+│   │   ├── components/
+│   │   ├── hooks/
 │   │   ├── App.js
 │   │   ├── index.js
 ├── README.md
@@ -89,4 +126,3 @@ creditsea-fullstack-assignment/
 
 ## Demo Video & Screenshots
 
-## Contributing
