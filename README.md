@@ -108,6 +108,7 @@ creditsea-fullstack-assignment/
 │   ├── middleware/
 │   ├── models/
 │   ├── routes/
+|   ├── tests/
 │   ├── uploads/
 │   ├── utils/
 │   ├── .env.example
@@ -121,8 +122,42 @@ creditsea-fullstack-assignment/
 │   │   ├── hooks/
 │   │   ├── App.js
 │   │   ├── index.js
+|   ├── tests/
+|   |   ├── components/
+|   |   ├── hooks/
+|   |   |── integration/
+│   ├── .gitignore
+│   ├── package.json
+
 ├── README.md
 ```
 
 ## Demo Video & Screenshots
+
+### Demo Video
+
+
+### localhost:3000
+![alt text](image.png)
+
+### File Uploaded Successfully
+![alt text](image-1.png)
+
+### Data Extracted Successfully
+![alt text](image-2.png)
+
+### Select Category
+![alt text](image-3.png)
+
+### Select Category out of 3
+![alt text](image-4.png)
+
+### Basic Details
+![alt text](image-5.png)
+
+### Report Summary
+![alt text](image-6.png)
+
+### Credit Accounts Information
+![alt text](image-7.png)
 

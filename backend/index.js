@@ -23,6 +23,12 @@ app.use((err, req, res, next) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
-});
+// Do not call app.listen() if the environment is 'test'
+if (process.env.NODE_ENV !== 'test') {
+    const port = 3000;
+    app.listen(port, () => {
+        console.log(`Server running at http://localhost:${port}`);
+    });
+}
+
+module.exports = app;  // Export the app for testing
