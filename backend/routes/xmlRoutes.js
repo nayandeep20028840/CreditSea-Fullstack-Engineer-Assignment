@@ -6,5 +6,6 @@ const router = express.Router();
 
 // POST route to upload XML file
 router.post('/upload', fileUpload.single('file'), uploadReport);
+router.get('/data', getReport);
 
 module.exports = router;

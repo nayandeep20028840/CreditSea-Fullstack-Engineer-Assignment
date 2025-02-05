@@ -6,7 +6,7 @@ A fullstack MERN (MongoDB, Express, React, Node.js) application that processes X
 
 ## Features
 - **XML Upload API**: Accepts and validates XML file uploads.
-- **Data Extraction & Storage**: Parses XML files and stores extracted information in MongoDB.
+- **Data Extraction & Storage**: Parses XML files and stores extracted information in MongoDB Database.
 - **Report Generation**: Displays extracted credit report data via a React frontend.
 - **RESTful API**: Provides endpoints for data retrieval and display.
 - **Error Handling & Logging**: Ensures robust handling of edge cases.

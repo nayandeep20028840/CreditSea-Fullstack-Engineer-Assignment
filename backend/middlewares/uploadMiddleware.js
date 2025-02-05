@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
 
 const fileFilter = (req, file, cb) => {
     // console.log('File:', file); // correct file object
-    if (file.mimetype === 'application/xml') {
+    if (file.mimetype === 'application/xml' || file.mimetype === 'text/xml') {
         cb(null, true);
     } else {
         cb(new Error('Invalid file type. Only XML files are allowed.'));

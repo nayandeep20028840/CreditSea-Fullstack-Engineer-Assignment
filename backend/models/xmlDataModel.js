@@ -1,33 +1,32 @@
+// models/xmlDataModel.js
 const mongoose = require('mongoose');
 
 const xmlDataSchema = new mongoose.Schema({
     basicDetails: {
-        name: String,
-        mobilePhone: String,
-        pan: String,
-        creditScore: String,
+        name: { type: String, default: '' },
+        mobile: { type: String, default: '' },
+        pan: { type: String, default: '' },
+        creditScore: { type: String, default: '' },
     },
     reportSummary: {
-        totalAccounts: Number,
-        activeAccounts: Number,
-        closedAccounts: Number,
-        currentBalanceAmount: Number,
-        securedAccountsAmount: Number,
-        unsecuredAccountsAmount: Number,
-        last7DaysCreditEnquiries: Number,
+        totalAccounts: { type: String, default: '' },
+        activeAccounts: { type: String, default: '' },
+        closedAccounts: { type: String, default: '' },
+        currentBalance: { type: String, default: '' },
+        securedAmount: { type: String, default: '' },
+        unsecuredAmount: { type: String, default: '' },
+        last7DaysEnquiries: { type: String, default: '' },
     },
     creditAccounts: [
         {
-            creditCard: String,
-            bankOfCreditCard: String,
-            address: String,
-            accountNumber: String,
-            amountOverdue: Number,
-            currentBalance: Number,
+            isCreditCard: { type: Boolean, default: false },
+            bank: { type: String, default: '' },
+            address: { type: mongoose.Schema.Types.Mixed, default: {} },
+            accountNumber: { type: String, default: '' },
+            amountOverdue: { type: String, default: '' },
+            currentBalance: { type: String, default: '' },
         },
     ],
-});
+}, { timestamps: true });
 
-const XmlData = mongoose.model('XmlData', xmlDataSchema);
-
-module.exports = XmlData;
+module.exports = mongoose.model('XmlData', xmlDataSchema);
