@@ -82,13 +82,13 @@ const uploadReport = async (req, res) => {
         await newReport.save();
 
         // Delete the uploaded file
-        fs.unlink(req.file.path, (err) => {
-            if (err) {
-                console.error("Error deleting the file:", err);
-            } else {
-                console.log("File deleted successfully");
-            }
-        });
+        // fs.unlink(req.file.path, (err) => {
+        //     if (err) {
+        //         console.error("Error deleting the file:", err);
+        //     } else {
+        //         console.log("File deleted successfully");
+        //     }
+        // });
 
         res.status(200).json({
             message: 'Report processed and saved successfully',
