@@ -18,7 +18,7 @@ const allowedOrigin = "https://credit-sea-fullstack-engineer-assignment.vercel.a
 
 app.use(
     cors({
-        origin: allowedOrigin,
+        origin: '*', // Change this to allowedOrigin to restrict access
         methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods if needed
         credentials: true, // If sending cookies or authentication headers
     })
