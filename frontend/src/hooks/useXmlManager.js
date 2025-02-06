@@ -48,7 +48,7 @@ const useXmlManager = () => {
     // Fetch the latest report from the backend
     const handleFetchReport = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/api/files/data");
+            const response = await axios.get("/api/files/data");
             setReport(response.data);
             alert("Data Extracted successfully!");
         } catch (error) {
