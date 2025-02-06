@@ -19,9 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 // Enable CORS for all domains (allowing any origin)
 app.use(cors());
 
-// Serve static files (frontend) from the 'dist' directory
-app.use(express.static(path.join(__dirname, 'dist')));
-
 // API Routes for file uploads and fetching data
 app.use('/api/files', xmlRoutes);
 
@@ -30,9 +27,12 @@ app.get("/", (req, res) => {
     res.send("Server is running!!!...");
 });
 
-// Catch-all for frontend routes (serve index.html for all routes that don’t match an API route)
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'dist'))); // Or 'public' if you copy there
+
+// The "catchall" handler to send back index.html on all unmatched requests:
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html')); // Or 'public/index.html'
 });
 
 // Error handling middleware
