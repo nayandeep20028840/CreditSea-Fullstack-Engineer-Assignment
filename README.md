@@ -95,8 +95,6 @@ npm run dev
 |     - currentBalance            | Number              | Current balance     
 
 
-## Testing
-
 
 ## Folder Structure
 
@@ -132,9 +130,7 @@ creditsea-fullstack-assignment/
 ├── README.md
 ```
 
-## Demo Video & Screenshots
-
-### Demo Video
+## Screenshots
 
 
 ### localhost:3000

@@ -28,6 +28,7 @@ const useXmlManager = () => {
 
         const formData = new FormData();
         formData.append("file", selectedFile);
+        console.log("Uploading file:", selectedFile);
 
         try {
             const response = await axios.post("/api/files/upload", formData,{
