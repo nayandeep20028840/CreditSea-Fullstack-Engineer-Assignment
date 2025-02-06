@@ -30,9 +30,11 @@ const useXmlManager = () => {
         formData.append("file", selectedFile);
 
         try {
-            const response = await axios.post("/api/files/upload", formData,
-                {
-                    headers: { "Content-Type": "multipart/form-data" },
+            const response = await axios.post("/api/files/upload", formData,{
+                    method: 'POST', // Ensure this is POST
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
                 }
             );
             alert("File uploaded successfully!");
@@ -48,7 +50,9 @@ const useXmlManager = () => {
     // Fetch the latest report from the backend
     const handleFetchReport = async () => {
         try {
-            const response = await axios.get("/api/files/data");
+            const response = await axios.get("/api/files/data", {
+                // method: 'GET', // Ensure this is GET
+            });
             setReport(response.data);
             alert("Data Extracted successfully!");
         } catch (error) {

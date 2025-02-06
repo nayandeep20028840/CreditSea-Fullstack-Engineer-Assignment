@@ -20,7 +20,7 @@ app.use(cors());
 
 // Define a default route (fixes "Cannot GET /" error)
 app.get("/", (req, res) => {
-    res.send("Server is running!");
+    res.send("Server is running!!!...");
 });
 
 // Use file upload routes
@@ -35,12 +35,6 @@ app.use((err, req, res, next) => {
     }
 });
 
-// Start server (except in test environment)
-if (process.env.NODE_ENV !== 'test') {
-    app.listen(PORT, () => {
-        console.log(`Server running at http://localhost:${PORT}`);
-    });
-}
-
-// Corrected module.exports
-module.exports = app;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});

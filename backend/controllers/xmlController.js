@@ -5,10 +5,10 @@ const XmlData = require('../models/xmlDataModel');
 const dbconnect = require('../config/db');
 
 const uploadReport = async (req, res) => {
+    // console.log("File uploaded:", req.file);
     if (!req.file) {
         return res.status(400).json({ message: 'No file uploaded' });
     }
-
     try {
         dbconnect();
         const xmlData = fs.readFileSync(req.file.path, 'utf-8');
@@ -76,7 +76,7 @@ const uploadReport = async (req, res) => {
             },
             creditAccounts: creditAccountsInfo,
         };
-
+        console.log("Data to store:", dataToStore);
         // Save to the database
         const newReport = new XmlData(dataToStore);
         await newReport.save();
