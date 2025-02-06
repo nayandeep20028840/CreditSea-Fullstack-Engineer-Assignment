@@ -4,6 +4,7 @@ import axios from "axios";
 const useXmlManager = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [report, setReport] = useState(null);
+    const BASE_URL = `https://creditsea-fullstack-engineer-assignment.onrender.com`;
 
     // Handle file selection and validation
     const handleFileChange = (e) => {
@@ -31,7 +32,7 @@ const useXmlManager = () => {
         console.log("Uploading file:", selectedFile);
 
         try {
-            const response = await axios.post("/api/files/upload", formData,{
+            const response = await axios.post(`${BASE_URL}/api/files/upload`, formData, {
                     method: 'POST', // Ensure this is POST
                     headers: {
                         'Content-Type': 'multipart/form-data',
@@ -51,7 +52,7 @@ const useXmlManager = () => {
     // Fetch the latest report from the backend
     const handleFetchReport = async () => {
         try {
-            const response = await axios.get("/api/files/data", {
+            const response = await axios.get(`${BASE_URL}/api/files/data`, {
                 // method: 'GET', // Ensure this is GET
             });
             setReport(response.data);

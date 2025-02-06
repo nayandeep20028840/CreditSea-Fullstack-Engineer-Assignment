@@ -1,7 +1,8 @@
+
+
 const express = require('express');
 const cors = require('cors');
 const xmlRoutes = require('./routes/xmlRoutes.js');
-const path = require('path');
 const dotenv = require('dotenv');
 
 // Load environment variables
@@ -16,70 +17,16 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Enable CORS for all domains (allowing any origin)
+// Enable CORS for all routes
 app.use(cors());
-
-// API Routes for file uploads and fetching data
-app.use('/api/files', xmlRoutes);
 
 // Define a default route (fixes "Cannot GET /" error)
 app.get("/", (req, res) => {
     res.send("Server is running!!!...");
 });
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'dist'))); // Or 'public' if you copy there
-
-// The "catchall" handler to send back index.html on all unmatched requests:
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html')); // Or 'public/index.html'
-});
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    if (err.message) {
-        res.status(400).send(err.message);
-    } else {
-        res.status(500).send('Internal Server Error');
-    }
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
-
-
-
-
-
-// const express = require('express');
-// const cors = require('cors');
-// const xmlRoutes = require('./routes/xmlRoutes.js');
-// const dotenv = require('dotenv');
-
-// // Load environment variables
-// dotenv.config();
-
-// const app = express();
-
-// // Setting up the PORT
-// const PORT = process.env.PORT || 3000;
-
-// // Middleware to handle JSON or form-data
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
-
-// // Enable CORS for all routes
-// app.use(cors());
-
-// // Define a default route (fixes "Cannot GET /" error)
-// app.get("/", (req, res) => {
-//     res.send("Server is running!!!...");
-// });
-
-// // Use file upload routes
-// app.use('/api/files', xmlRoutes);
+// Use file upload routes
+app.use('/api/files', xmlRoutes);
 
 // // Error handling middleware
 // app.use((err, req, res, next) => {
@@ -90,6 +37,6 @@ app.listen(PORT, () => {
 //     }
 // });
 
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
