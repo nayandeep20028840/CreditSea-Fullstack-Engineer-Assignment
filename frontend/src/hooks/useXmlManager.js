@@ -4,7 +4,7 @@ import axios from "axios";
 const useXmlManager = () => {
     const [selectedFile, setSelectedFile] = useState(null);
     const [report, setReport] = useState(null);
-    const BASE_URL = `https://creditsea-fullstack-engineer-assignment.onrender.com`;
+    const BASE_URL = "http://localhost:3000"; // Update this with your backend URL
 
     // Handle file selection and validation
     const handleFileChange = (e) => {
