@@ -13,6 +13,17 @@ const app = express();
 // Setting up the PORT
 const PORT = process.env.PORT || 3000;
 
+// Allow only the specified frontend URL
+const allowedOrigin = "https://credit-sea-fullstack-engineer-assignment.vercel.app";
+
+app.use(
+    cors({
+        origin: allowedOrigin,
+        methods: ["GET", "POST", "PUT", "DELETE"], // Specify allowed methods if needed
+        credentials: true, // If sending cookies or authentication headers
+    })
+);
+
 // Middleware to handle JSON or form-data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
