@@ -4,7 +4,6 @@ import useXmlManager from "../hooks/useXmlManager";
 const Home = () => {
     const navigate = useNavigate();
     const { selectedFile, report, handleFileChange, handleUpload, handleFetchReport } = useXmlManager();
-    console.log("Report:", report);
     return (
         <div className="p-5 text-center text-white bg-black min-h-screen">
             <h1 className="text-3xl font-bold mb-8">XML File Upload</h1>

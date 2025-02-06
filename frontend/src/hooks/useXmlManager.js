@@ -30,17 +30,15 @@ const useXmlManager = () => {
         formData.append("file", selectedFile);
 
         try {
-            const response = await axios.post(
-                "http://localhost:3000/api/files/upload",
-                formData,
+            const response = await axios.post("/api/files/upload", formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
                 }
             );
             alert("File uploaded successfully!");
             console.log("Upload response:", response.data);
-            // Clear the file after a successful upload
-            setSelectedFile(null);
+            
+            setSelectedFile(null); // Clear the file after a successful upload
         } catch (error) {
             console.error("Error uploading file:", error);
             alert("Error uploading file. " + (error.response?.data?.message || error.message));
@@ -51,16 +49,13 @@ const useXmlManager = () => {
     const handleFetchReport = async () => {
         try {
             const response = await axios.get("http://localhost:3000/api/files/data");
-            // console.log("Report fetched successfully:", response.data);
             setReport(response.data);
             alert("Data Extracted successfully!");
-            // console.log("Report:", report);
         } catch (error) {
             console.error("Error fetching report:", error);
             alert("Error fetching report.");
         }
     };
-    // console.log("Report:", report);
     return {
         selectedFile,
         report,
